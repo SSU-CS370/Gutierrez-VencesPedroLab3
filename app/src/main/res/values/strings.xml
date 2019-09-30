@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AndroidLab3</string>
+    <string name="no_matches_txt">0 matches</string>
+    <string name="count_recipes_txt">Count Recipes</string>
+</resources>
