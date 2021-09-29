@@ -1,5 +1,6 @@
 package ssu.softwarednd.androidlab3.utility;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -15,10 +16,10 @@ public class RecipeParser {
 
         try {
             // convert the raw string into a Java JSONObject
-            JSONObject response = new JSONObject(json);
+            JSONArray response = new JSONArray(json);
 
             // deserialize an integer
-            totalMatches = response.getInt("totalMatchCount");
+            totalMatches = response.length();
 
         } catch (JSONException e) {
             e.printStackTrace();

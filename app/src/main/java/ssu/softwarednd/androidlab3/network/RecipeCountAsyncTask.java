@@ -18,7 +18,6 @@ public class RecipeCountAsyncTask extends AsyncTask<String, Void, Integer> {
 // RESULT is the datatype that we send back on completion of this task
 //      an Integer (int) that represents the number of recipes that use the ingredient
 
-
     @Override
     protected Integer doInBackground(String... params) {
         // runs on a background thread, not blocking main
@@ -26,7 +25,7 @@ public class RecipeCountAsyncTask extends AsyncTask<String, Void, Integer> {
         String searchTerm = params[0];  // what we're searching for
         Log.d("AsyncTask", "doInBackground: " + searchTerm);
 
-        // get the json response from Yummly's Recipe API
+        // get the json response from Spoonacular's Recipe API
         String responseJson = RecipeSearchApi.searchRecipes(searchTerm);
 
         // success? :)
@@ -44,7 +43,6 @@ public class RecipeCountAsyncTask extends AsyncTask<String, Void, Integer> {
         super.onPostExecute(result);
         Log.d("AsyncTask", "onPostExecute: " + result);
     }
-
 
     public interface RecipeListener {
         void onRecipeCallback(Integer result);

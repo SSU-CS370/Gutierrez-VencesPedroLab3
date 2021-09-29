@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import ssu.softwarednd.androidlab3.network.RecipeCountAsyncTask;
+import ssu.softwarednd.androidlab3.network.RecipeSearchApi;
+
 
 public class MainActivity extends AppCompatActivity {
 

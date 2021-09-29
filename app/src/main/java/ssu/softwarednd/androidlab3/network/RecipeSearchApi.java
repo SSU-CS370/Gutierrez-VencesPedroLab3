@@ -9,10 +9,8 @@ import okhttp3.Response;
 
 public class RecipeSearchApi {
 
-    private static final String baseApiUrl = "http://api.yummly.com/v1/api/recipes";
-    private static final String apiKey = "ec3e34e0bb6801670dbd3dbd02ce7608";
-    private static final String appId = "4911b643";
-
+    private static final String baseApiUrl = "https://api.spoonacular.com/recipes/findByIngredients";
+    private static final String apiKey = "d4897ac2dd8e494a8815edc1c5f29538";
 
     /**
      * Searches the YummlyApi recipe database.
@@ -25,9 +23,8 @@ public class RecipeSearchApi {
         HttpUrl.Builder urlBuilder = HttpUrl.parse(baseApiUrl).newBuilder();
 
         // and adding on a few more parts
-        urlBuilder.addQueryParameter("_app_key", apiKey);
-        urlBuilder.addQueryParameter("_app_id", appId);
-        urlBuilder.addQueryParameter("q", input);
+        urlBuilder.addQueryParameter("apiKey", apiKey);
+        urlBuilder.addQueryParameter("ingredients", input);
 
         // until it's ready to assemble
         String url = urlBuilder.build().toString();
@@ -39,7 +36,8 @@ public class RecipeSearchApi {
         // form the Request with the url
         Request request = new Request.Builder().url(url).build();
 
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client;
+        client = new OkHttpClient();
         try {
             // ask the server for a response
             Response response = client.newCall(request).execute();
